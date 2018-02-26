@@ -1,4 +1,4 @@
-package it.univaq.disim.crossminer.matrix;
+package it.univaq.disim.crossminer.clan.main;
 
 import java.io.BufferedReader;
 import java.io.EOFException;

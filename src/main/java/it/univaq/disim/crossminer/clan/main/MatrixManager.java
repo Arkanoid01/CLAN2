@@ -1,4 +1,4 @@
-package it.univaq.disim.crossminer.matrix;
+package it.univaq.disim.crossminer.clan.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import org.apache.commons.math3.linear.RealVector;
 
 import it.univaq.disim.crossminer.clan.models.Repositories;
 import it.univaq.disim.crossminer.clan.scan.FolderNavigator;
+import it.univaq.disim.crossminer.matrix.Row;
 
 public class MatrixManager {
 

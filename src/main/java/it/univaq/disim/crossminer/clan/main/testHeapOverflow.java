@@ -1,4 +1,4 @@
-package it.univaq.disim.crossminer.matrix;
+package it.univaq.disim.crossminer.clan.main;
 
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
