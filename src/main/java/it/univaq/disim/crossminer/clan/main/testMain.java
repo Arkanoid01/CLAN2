@@ -90,9 +90,7 @@ public class testMain {
 		/*
 		 * scrittura su file
 		 */
-		
-		
-		
+
 		File file = new File("results.txt");
 		FileWriter fileWriter = new FileWriter(file);
 		for(int i=0; i<m.getRowDimension(); i++)
@@ -104,44 +102,7 @@ public class testMain {
 		fileWriter.close();
 		
 
-		RealMatrix m2 = MatrixUtils.createRealMatrix(400,400);
-		
-
-		
-		BufferedReader reader = new BufferedReader(new FileReader("results.txt"));
-		String line;
-        
-        List<String> lines = Files.readAllLines(Paths.get("results.txt"), Charset.defaultCharset());//readAllLines("results.txt");
-        
-        for(int i=0; i<lines.size(); i++)
-        {
-        	line = lines.get(i);
-        	int index = 17;
-        	int j = 0;
-        	while (true)
-    	    {
-    	    	try
-    	    	{ 
-	    	        int index2 = line.indexOf(",",index);
-	    	        m2.setEntry(i, j, Double.parseDouble(line.substring(index, index2)));
-	    	        System.out.println(Double.parseDouble(line.substring(index+2, index2)));
-	    	        index = line.indexOf(",", index2);
-	    	        j++;
-	    	        
-    	    	}
-    	    	catch(Exception exc)
-    	    	{
-    	    		break;
-    	    	}
-    	    }
-        }
-	    
-        System.out.println("AIUTOOOOOOOOOOOOOOOOOOO");
-        
-		/*for(int i=0; i<m2.getRowDimension(); i++)
-		{
-			System.out.println(m2.getRowMatrix(i));
-		}*/
+	
 		
 		//DataRefinement dr = new DataRefinement();
 		//dr.refine(m);
