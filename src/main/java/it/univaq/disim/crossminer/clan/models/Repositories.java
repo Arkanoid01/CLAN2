@@ -10,9 +10,14 @@ import java.util.Scanner;
 public class Repositories {
 	
 	private String repoName;
-	private ArrayList<String> mainList = resumeMainList();
+	private ArrayList<String> mainList;
 	private ArrayList<String> terms = new ArrayList<String>();
 	private ArrayList<ArrayList<Double>> occurrenciesList = new ArrayList<ArrayList<Double>>();
+	
+	public Repositories(String operation)
+	{
+		this.mainList = resumeMainList(operation);
+	}
 	
 	public String getRepoName() {
 		return repoName;
@@ -39,16 +44,17 @@ public class Repositories {
 		this.occurrenciesList = occurrenciesList;
 	}
 	
-	public ArrayList<String> resumeMainList()
+	public ArrayList<String> resumeMainList(String operation)
 	{
-		File folderPath = new File("results/");
+		File folderPath = new File("results"+operation+"/");
 		File[] listOfFiles = folderPath.listFiles();
 		
 		ArrayList<String> files = new ArrayList<String>();
 		for(File elem:listOfFiles)
 		{
-			int indexx = elem.toString().indexOf("/");
-			String string = elem.toString().substring(indexx+9);
+			int indexx = elem.toString().indexOf("\\");
+			int endindex = elem.toString().indexOf(".txt");
+			String string = elem.toString().substring(indexx+1,endindex+4);
 			files.add(string);
 		}
 		
@@ -80,19 +86,25 @@ public class Repositories {
 		}
 		return mainList;
 	}
-	public void saveMainList(ArrayList<String> main_list) {
+	
+	public void saveMainList(ArrayList<String> main_list, String operation) {
 		try {
 			
-			PrintStream ps = new PrintStream("results/mainList.txt");
+			PrintStream ps = new PrintStream("results"+operation+"/"+"mainList.txt");
+			
 			for(String elem:main_list)
 			{
 				ps.println(elem);
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 }
+/*
+ *  = resumeMainList();
+ *   = new ArrayList<String>()
+ *    = new ArrayList<ArrayList<Double>>()
+ */
 

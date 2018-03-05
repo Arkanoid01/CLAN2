@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.PackageDeclaration;
+import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
@@ -16,7 +16,7 @@ public class Parser {
 		
     	List<String> fieldvariables = new ArrayList<String>();
         @SuppressWarnings("deprecation")
-		List<FieldDeclaration> node_list = cu.getNodesByType(FieldDeclaration.class);
+		List<FieldDeclaration> node_list = cu.getChildNodesByType(FieldDeclaration.class);
         for( FieldDeclaration variable : node_list)
         {
         	try
@@ -38,7 +38,7 @@ public class Parser {
 		ArrayList<List<String>> couples = new ArrayList<List<String>>();
 		
         @SuppressWarnings("deprecation")
-		List<VariableDeclarationExpr> node_list = cu.getNodesByType(VariableDeclarationExpr.class);
+		List<VariableDeclarationExpr> node_list = cu.getChildNodesByType(VariableDeclarationExpr.class);
         for( VariableDeclarationExpr variable : node_list)
         {
 	    	try
@@ -62,8 +62,8 @@ public class Parser {
 		
     	List<String> packages = new ArrayList<String>();
         @SuppressWarnings("deprecation")
-		List<PackageDeclaration> node_list = cu.getNodesByType(PackageDeclaration.class);
-        for( PackageDeclaration package1 : node_list)
+		List<ImportDeclaration> node_list = cu.getChildNodesByType(ImportDeclaration.class);
+        for( ImportDeclaration package1 : node_list)
         {
         	try
         	{
@@ -83,7 +83,7 @@ public class Parser {
 		
     	List<String> methods = new ArrayList<String>();
         @SuppressWarnings("deprecation")
-		List<MethodDeclaration> node_list = cu.getNodesByType(MethodDeclaration.class);
+		List<MethodDeclaration> node_list = cu.getChildNodesByType(MethodDeclaration.class);
         for( MethodDeclaration method : node_list)
         {
         	try

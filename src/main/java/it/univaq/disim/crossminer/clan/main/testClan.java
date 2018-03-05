@@ -24,7 +24,7 @@ import it.univaq.disim.crossminer.matrix.CosineSimilarity;
 import it.univaq.disim.crossminer.matrix.DataRefinement;
 import it.univaq.disim.crossminer.matrix.LSA;
 
-public class testMain {
+public class testClan {
 
 	public static void main(String[] args) throws IOException {
 
@@ -47,7 +47,7 @@ public class testMain {
 		
 		ArrayList<ArrayList<Double>> occurrencies_list = new ArrayList<ArrayList<Double>>();
 		
-		occurrencies_list = manager.createFiles(path_list);
+		occurrencies_list = manager.createFiles(path_list,"remove");
 		
 		
 		

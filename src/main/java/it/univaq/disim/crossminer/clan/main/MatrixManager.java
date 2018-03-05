@@ -20,7 +20,7 @@ public class MatrixManager {
 	public RealMatrix createMatrix (ArrayList<ArrayList<Double>> occurrencies_list)
 	{
 		int max = 0;
-		for(ArrayList elem : occurrencies_list)
+		for(ArrayList<Double> elem : occurrencies_list)
 		{
 			if(max <= elem.size())
 			{
@@ -28,6 +28,7 @@ public class MatrixManager {
 			}
 			
 		}
+		
 		/*
 		 * conversione nei formati real matrix
 		 */
@@ -36,7 +37,7 @@ public class MatrixManager {
 		RealMatrix m = MatrixUtils.createRealMatrix(max,occurrencies_list.size());
 
 		int rowCounter=0;
-		for(ArrayList elem : occurrencies_list)
+		for(ArrayList<Double> elem : occurrencies_list)
 		{
 			//RealVector vector = new ArrayRealVector(elem.size());
 			RealVector vector = new ArrayRealVector(max);
@@ -51,25 +52,27 @@ public class MatrixManager {
 		return m;
 	}
 	
-	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list) throws FileNotFoundException
+	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list,String operation) throws FileNotFoundException
 	{
 		Row row = new Row();
-		Repositories repository_object = new Repositories();
-		repository_object.setMainList(repository_object.resumeMainList());
+		Repositories repository_object = new Repositories(operation);
+		repository_object.setMainList(repository_object.resumeMainList(operation));
 
 		for(String repo : path_list)
 		{		
 			int index = repo.indexOf("\\", 8);
 			String repoName = repo.substring(index+1);;
 			
-			File folder_path = new File("results/");
+			File folder_path = new File("results"+operation+"/");
 			File[] listOfFiles = folder_path.listFiles();
 			
 			ArrayList<String> files = new ArrayList<String>();
+			
 			for(File elem:listOfFiles)
 			{
-				int indexx = elem.toString().indexOf("/");
-				String string = elem.toString().substring(indexx+9);
+				int indexx = elem.toString().indexOf("\\");
+				int endindex = elem.toString().indexOf(".txt");
+				String string = elem.toString().substring(indexx+1,endindex+4);
 				files.add(string);
 			}
 			
@@ -88,11 +91,12 @@ public class MatrixManager {
 	        FolderNavigator navigator = new FolderNavigator();
 			ArrayList<String> terms= new ArrayList<String>();
 	        
-	        repository_object = navigator.Files_List(file, repository_object.getMainList(), terms, repository_object);
-			repository_object.saveMainList(repository_object.getMainList());
+	        repository_object = navigator.filesList(file, repository_object.getMainList(), terms, repository_object,operation);
+			repository_object.saveMainList(repository_object.getMainList(),operation);
 	        
-	        PrintStream ps = new PrintStream(new File("results/"+repoName+".txt"));
-	        row.create_row(repository_object,ps);
+			System.out.println("saving: "+repoName);
+	        PrintStream ps = new PrintStream(new File("results"+operation+"/"+repoName+".txt"));
+	        row.createRow(repository_object,ps);
 			
 			ps.close();
 			}
@@ -100,7 +104,7 @@ public class MatrixManager {
 		
 	    Scanner scan;
 	    
-		File folder_path = new File("results/");
+		File folder_path = new File("results"+operation+"/");
 		File[] listOfFiles = folder_path.listFiles();
 		ArrayList<ArrayList<Double>> occurrencies_list = new ArrayList<ArrayList<Double>>();
 		
@@ -108,20 +112,24 @@ public class MatrixManager {
 		{
 			if(elem.toString().indexOf("mainList.txt")==-1)
 			{
-				//System.out.println(elem.toString());
-			ArrayList<Double> ol = new ArrayList<Double>();
-		    try {
-		        scan = new Scanner(elem);
-		        while(scan.hasNext())
-		        {
-		        	double var = Double.parseDouble(scan.next());
-		            ol.add(var);
-		        }
-	
-		    } catch (FileNotFoundException e1) {
-		            e1.printStackTrace();
-		    }
-		    occurrencies_list.add(ol);
+				ArrayList<Double> ol = new ArrayList<Double>();
+			    try {
+				        scan = new Scanner(elem);
+				        while(scan.hasNext())
+				        {
+				        	double var = Double.parseDouble(scan.next());
+				        	
+				            ol.add(var);
+				        }
+		
+			    	} 
+			    catch (FileNotFoundException e1) 
+			    {
+			            e1.printStackTrace();
+			    }
+			    
+			    System.out.println("repo loaded: "+elem.toString());
+		    	occurrencies_list.add(ol);
 			}
 			else
 			{

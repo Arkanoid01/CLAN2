@@ -1,9 +1,7 @@
 package it.univaq.disim.crossminer.clan.main;
 
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
 import it.univaq.disim.crossminer.clan.githubdownloader.GitHubRepositoryManager;
-import it.univaq.disim.crossminer.clan.scan.ListManager;
 
 public class mainDownload {
 
@@ -42,9 +39,6 @@ public class mainDownload {
 			}
 			
 		}
-		
-		ListManager manager = new ListManager();
-		
 		
 	
 		while((line = in.readLine()) != null)
