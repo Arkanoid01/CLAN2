@@ -23,9 +23,8 @@ public class Main {
 			path_list.add(elem.toString());
 		}
 		
-		
 		GenerateSimilarityMatrix generator = new GenerateSimilarityMatrix();
-		String operation = "packages"; //specifica se fare analisi dei package o dei metodi
+		String operation = "methods"; //specifica se fare analisi dei package o dei metodi
 		
 		/*
 		 * data la lista delle repository da analizzare e il tipo di analisi da fare

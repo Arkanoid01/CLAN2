@@ -3,10 +3,14 @@ package it.univaq.disim.crossminer.clan.scan;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.MethodInvocation;
+
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 
 public class Parser {
@@ -67,7 +71,10 @@ public class Parser {
         {
         	try
         	{
-        		packages.add(package1.getNameAsString());
+        		if(package1.getNameAsString().indexOf("java.",0)!=-1)// !=-1 per solo JDK
+        		{
+        			packages.add(package1.getNameAsString());
+        		}
         	}
 	    	catch(Exception exc)
 	    	{
@@ -89,6 +96,11 @@ public class Parser {
         	try
         	{
         		methods.add(method.getNameAsString());
+				/*for(MethodCallExpr elem : method.getChildNodesByType(MethodCallExpr.class))
+				{
+					methods.add(elem.getNameAsString());
+					//System.out.println(elem.getNameAsString());
+				}*/
         	}
 	    	catch(Exception exc)
 	    	{

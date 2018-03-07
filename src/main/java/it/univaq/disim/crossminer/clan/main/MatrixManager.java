@@ -2,6 +2,7 @@ package it.univaq.disim.crossminer.clan.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -52,7 +53,7 @@ public class MatrixManager {
 		return m;
 	}
 	
-	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list,String operation) throws FileNotFoundException
+	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list,String operation) throws IOException
 	{
 		Row row = new Row();
 		Repositories repository_object = new Repositories(operation);
