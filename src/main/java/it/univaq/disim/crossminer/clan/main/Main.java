@@ -13,7 +13,9 @@ public class Main {
 		
 		ArrayList<String> path_list = new ArrayList<String>();
 		
-		File folder_path = new File("C:/repos");
+		String path= "C:/repos";
+		
+		File folder_path = new File(path);
 		File[] listOfRepos = folder_path.listFiles();
 		
 		for(File elem:listOfRepos)

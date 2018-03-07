@@ -2,7 +2,6 @@ package it.univaq.disim.crossminer.clan.models;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -102,9 +101,4 @@ public class Repositories {
 		
 	}
 }
-/*
- *  = resumeMainList();
- *   = new ArrayList<String>()
- *    = new ArrayList<ArrayList<Double>>()
- */
 

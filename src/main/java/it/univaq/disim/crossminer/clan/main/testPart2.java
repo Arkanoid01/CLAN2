@@ -14,6 +14,7 @@ public class testPart2 {
 		
 		LoadSave ls = new LoadSave();
 		DataRefinement dr = new DataRefinement();
+		File folder_path = new File("C:/repos");
 		
 		File f = new File("resultspackages.txt");
 		RealMatrix mp = ls.Load(f);
@@ -40,7 +41,7 @@ public class testPart2 {
 			System.out.println(mr.getRowMatrix(i));
 		}*/
 		
-		dr.refine(mr);
+		dr.refine(mr,folder_path);
 	}
 
 }
