@@ -21,7 +21,7 @@ public class mainDownload {
 		String line;
 		
 		/*
-		 * aggiunto codice per verificare se le repository da scaricare sono già presenti nella directory 
+		 * aggiunto codice per verificare se le repository da scaricare sono presenti nella directory 
 		 */
 		
 		File folder_path = new File("C:/repos");

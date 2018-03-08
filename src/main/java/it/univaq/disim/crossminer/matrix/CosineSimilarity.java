@@ -65,7 +65,7 @@ public class CosineSimilarity {
 			for(int j=0; j<m.getColumnDimension(); j++)
 			{
 
-				if(j>=i) // triangolare superiore per fare la metà delle operazioni
+				if(j>=i) // triangolare superiore per fare la half delle operazioni
 				{
 					double simil = Similarity(m.getColumnVector(i),m.getColumnVector(j));
 					mFinal.setEntry(i, j, simil);

@@ -10,7 +10,7 @@ public class Row {
 	public ArrayList<Double> createRow(Repositories repositoryObject, PrintStream ps)
 	{
 		/*
-		 * crea la righa della matrice termini-documenti, cioè data una repository, confronta ogni elemento della lista
+		 * crea la righa della matrice termini-documenti, cioe data una repository, confronta ogni elemento della lista
 		 * principale con tutti termini nuovi trovati nella repo.
 		 */
 		ArrayList<Double> occurrenciesList = new ArrayList<Double>();

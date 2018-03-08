@@ -82,7 +82,7 @@ public class testClan {
 		}*/
 		
 		/*
-		 * Similarità
+		 * Similarity
 		 */
 		CosineSimilarity csm = new CosineSimilarity();
 		m = csm.CS(m);

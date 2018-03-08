@@ -78,10 +78,10 @@ public class MatrixManager {
 			}
 			
 			/*
-			 * controllo per verificare se ho gi‡ analizzato quella repository
+			 * controllo per verificare se ho already analizzato quella repository
 			 */
 			if(files.contains(repoName+".txt")) {
-				//System.out.println("gi‡ analizzato");
+				//System.out.println("already analysed");
 				continue;
 			}
 			
@@ -146,7 +146,7 @@ public class MatrixManager {
 		
 		/*
 		 * prendiamo la matrice realmatrix termini-documenti ed eliminiamo alcune colonne secondo questo principio:
-		 * se un termine appare in una sola repository lo eliminiamo oppure se appare in pi√π della met√† delle repository
+		 * se un termine appare in una sola repository lo eliminiamo oppure se appare more della than half† delle repository
 		 */
 		
 		ArrayList<Integer> results = new ArrayList<Integer>();

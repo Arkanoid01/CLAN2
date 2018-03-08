@@ -42,10 +42,10 @@ public class DataRefinement {
 		
 		
 		
-		results.entrySet().stream()
+	/*	results.entrySet().stream()
         .sorted(Map.Entry.<String, Double>comparingByValue().reversed()) 
         .limit(m.getRowDimension()*m.getRowDimension()) 
-        .forEach(System.out::println); // or any other terminal method
+        .forEach(System.out::println); // or any other terminal method*/
 		
 	}
 

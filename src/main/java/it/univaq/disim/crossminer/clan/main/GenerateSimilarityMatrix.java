@@ -34,7 +34,7 @@ public class GenerateSimilarityMatrix {
 		m = lsa.algorithm(m);
 		
 		/*
-		 * Similarità
+		 * Similarity
 		 */
 		CosineSimilarity csm = new CosineSimilarity();
 		m = csm.CS(m);

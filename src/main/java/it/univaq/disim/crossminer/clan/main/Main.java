@@ -28,7 +28,7 @@ public class Main {
 		
 		/*
 		 * data la lista delle repository da analizzare e il tipo di analisi da fare
-		 * torna la matrice di similarità n X n (n repository)
+		 * torna la matrice di similarity n X n (n repository)
 		 */
 		generator.generate(path_list,operation);
 
