@@ -61,8 +61,9 @@ public class MatrixManager {
 
 		for(String repo : path_list)
 		{		
-			int index = repo.indexOf("\\", 8);
-			String repoName = repo.substring(index+1);;
+			int index = repo.lastIndexOf("\\")+1;
+			int endindex = repo.length();
+			String repoName = repo.substring(index,endindex);
 			
 			File folder_path = new File("results"+operation+"/");
 			File[] listOfFiles = folder_path.listFiles();
@@ -72,7 +73,7 @@ public class MatrixManager {
 			for(File elem:listOfFiles)
 			{
 				int indexx = elem.toString().indexOf("\\");
-				int endindex = elem.toString().indexOf(".txt");
+				endindex = elem.toString().indexOf(".txt");
 				String string = elem.toString().substring(indexx+1,endindex+4);
 				files.add(string);
 			}

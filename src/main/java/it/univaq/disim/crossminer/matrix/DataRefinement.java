@@ -23,29 +23,31 @@ public class DataRefinement {
 		
 		for(File elem:listOfRepos)
 		{
-			path_list.add(elem.toString());
+			String repo = elem.toString();
+			int index = repo.lastIndexOf("\\")+1;
+			int endindex = repo.length();
+			String repoName = repo.substring(index,endindex);
+			path_list.add(repoName);
 		}
 		
-		
+		System.out.println(m.getRowDimension());
 		for(int i=0; i<m.getRowDimension(); i++)
 		{	
 			RealVector vector = m.getRowVector(i);
 			for(int j=0; j<m.getRowDimension(); j++)
 			{
-				results.put("ciao"+i+j, vector.getEntry(j));
+				results.put(path_list.get(i)+" - "+path_list.get(j)+" : ", vector.getEntry(j));
 				/*if(vector.getEntry(j)>0.75 && i!=j)
 				{
 					System.out.println(path_list.get(i)+" - "+path_list.get(j)+" : "+vector.getEntry(j));
 				}*/	
 			}
 		}
-		
-		
-		
-	/*	results.entrySet().stream()
+
+		results.entrySet().stream()
         .sorted(Map.Entry.<String, Double>comparingByValue().reversed()) 
         .limit(m.getRowDimension()*m.getRowDimension()) 
-        .forEach(System.out::println); // or any other terminal method*/
+        .forEach(System.out::println); // or any other terminal method
 		
 	}
 

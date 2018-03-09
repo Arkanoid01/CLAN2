@@ -14,7 +14,7 @@ public class testPart2 {
 		
 		LoadSave ls = new LoadSave();
 		DataRefinement dr = new DataRefinement();
-		File folder_path = new File("C:/repos");
+		File folder_path = new File("C:/repos/Nuova");
 		
 		File f = new File("resultspackages.txt");
 		RealMatrix mp = ls.Load(f);

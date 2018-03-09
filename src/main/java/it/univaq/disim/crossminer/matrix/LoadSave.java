@@ -29,11 +29,10 @@ public class LoadSave {
 	}
 
 	public RealMatrix Load(File f) throws IOException
-	{
-		RealMatrix m = MatrixUtils.createRealMatrix(400,400);
-		
+	{	
 		String line;
         List<String> lines = Files.readAllLines(Paths.get(f.toString()));
+        RealMatrix m = MatrixUtils.createRealMatrix(lines.size(),lines.size());
         
         for(int i=0; i<lines.size(); i++)
         {

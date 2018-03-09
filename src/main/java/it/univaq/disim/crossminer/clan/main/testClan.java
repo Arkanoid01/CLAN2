@@ -47,7 +47,7 @@ public class testClan {
 		
 		ArrayList<ArrayList<Double>> occurrencies_list = new ArrayList<ArrayList<Double>>();
 		
-		occurrencies_list = manager.createFiles(path_list,"remove");
+		//occurrencies_list = manager.createFiles(path_list,"remove");
 		
 		
 		

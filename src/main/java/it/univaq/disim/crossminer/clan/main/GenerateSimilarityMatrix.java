@@ -3,6 +3,7 @@ package it.univaq.disim.crossminer.clan.main;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import org.apache.commons.math3.linear.RealMatrix;
@@ -12,7 +13,7 @@ import it.univaq.disim.crossminer.matrix.LSA;
 
 public class GenerateSimilarityMatrix {
 	
-	public void generate(ArrayList<String> path_list, String operation) throws IOException
+	public void generate(ArrayList<String> path_list, String operation) throws IOException, URISyntaxException
 	{
 		
 		MatrixManager manager = new MatrixManager();

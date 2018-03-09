@@ -2,18 +2,20 @@ package it.univaq.disim.crossminer.clan.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, URISyntaxException {
 		
 		long startTime = System.currentTimeMillis(); //elapsed time
 		
 		ArrayList<String> path_list = new ArrayList<String>();
 		
-		String path= "C:/repos";
+		
+		String path= "C:/repos/Nuova";
 		
 		File folder_path = new File(path);
 		File[] listOfRepos = folder_path.listFiles();
