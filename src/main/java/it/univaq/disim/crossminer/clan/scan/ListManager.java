@@ -11,7 +11,7 @@ import com.github.javaparser.ast.CompilationUnit;
 
 public class ListManager {
 	
-	public ArrayList<String> createLocalList(File file, String operation) throws FileNotFoundException{
+	public ArrayList<String> createLocalList(File file, String operation, ArrayList jdk) throws FileNotFoundException{
 		// preso un file, torna la lista dei termini di quel file
 		
 		InputStream inputStream = new FileInputStream(file);
@@ -21,7 +21,7 @@ public class ListManager {
 			CompilationUnit cu = JavaParser.parse(inputStream);
 			ArrayList<String> smallList = new ArrayList<String>();
 			
-			smallList = merge(smallList,cu,operation);
+			smallList = merge(smallList,cu,operation,jdk);
 			return smallList;
 		}
     	catch(Exception exc)
@@ -33,7 +33,7 @@ public class ListManager {
 		
 	}
 	
-	public ArrayList<String> merge(ArrayList<String> targetList, CompilationUnit cu, String operation){
+	public ArrayList<String> merge(ArrayList<String> targetList, CompilationUnit cu, String operation, ArrayList jdk){
 		
 		Parser parser = new Parser();
 
@@ -47,7 +47,7 @@ public class ListManager {
 		
 		if(operation.equals("methods"))
 		{
-			for(String elem : parser.GetMethods(cu))
+			for(String elem : parser.GetMethods(cu, jdk))
 			{
 				targetList.add(elem);
 			}

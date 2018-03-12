@@ -13,7 +13,7 @@ import it.univaq.disim.crossminer.clan.models.Repositories;
 public class FolderNavigator 
 {
 	//funzione ricorsiva che data una directory, naviga tutti i file di tutte le sotto-directory
-	public Repositories filesList(File folderPath, ArrayList<String> mainList, ArrayList<String> repoMainList, Repositories repositoryObject, String operation) throws FileNotFoundException
+	public Repositories filesList(File folderPath, ArrayList<String> mainList, ArrayList<String> repoMainList, Repositories repositoryObject, String operation, ArrayList jdk) throws FileNotFoundException
 	{
 		File[] listOfFiles = folderPath.listFiles();
 		ListManager manager = new ListManager();
@@ -22,7 +22,7 @@ public class FolderNavigator
 	        
 	    	if (file.isDirectory())//directory 
 	        {
-	            filesList(file,mainList,repoMainList,repositoryObject,operation); // Calls same method again.
+	            filesList(file,mainList,repoMainList,repositoryObject,operation,jdk); // Calls same method again.
 	        } 
 	    	
 	        else //file 
@@ -30,9 +30,9 @@ public class FolderNavigator
 		    	String ext = FilenameUtils.getExtension(file.getName());
 		    	if (ext.equals("java"))
 		    	{	
-		    		manager.createMainList(mainList, manager.createLocalList(file,operation));
+		    		manager.createMainList(mainList, manager.createLocalList(file,operation,jdk));
 		    		repositoryObject.setMainList(mainList);
-		    		repositoryObject.setTerms(manager.createRepoMainList(repoMainList, manager.createLocalList(file,operation)));
+		    		repositoryObject.setTerms(manager.createRepoMainList(repoMainList, manager.createLocalList(file,operation,jdk)));
 		    	}
 	        }
 	    }

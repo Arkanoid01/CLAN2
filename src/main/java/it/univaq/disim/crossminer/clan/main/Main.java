@@ -26,13 +26,21 @@ public class Main {
 		}
 		
 		GenerateSimilarityMatrix generator = new GenerateSimilarityMatrix();
-		String operation = "methods"; //specifica se fare analisi dei package o dei metodi
+		String operation = "packages"; //specifica se fare analisi dei package o dei metodi
+		
+		/*
+		 * caricamento jdk
+		 */
+		File jdk_file = new File("jdk.txt");
+		Jdk jdk = new Jdk();
+		ArrayList jdk_list = new ArrayList();
+		jdk_list = jdk.load(jdk_file);
 		
 		/*
 		 * data la lista delle repository da analizzare e il tipo di analisi da fare
 		 * torna la matrice di similarity n X n (n repository)
 		 */
-		generator.generate(path_list,operation);
+		generator.generate(path_list,operation, jdk_list);
 
 		long estimatedTime = System.currentTimeMillis() - startTime;
 

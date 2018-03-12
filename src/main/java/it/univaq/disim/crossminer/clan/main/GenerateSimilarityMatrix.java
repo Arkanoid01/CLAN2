@@ -13,7 +13,7 @@ import it.univaq.disim.crossminer.matrix.LSA;
 
 public class GenerateSimilarityMatrix {
 	
-	public void generate(ArrayList<String> path_list, String operation) throws IOException, URISyntaxException
+	public void generate(ArrayList<String> path_list, String operation, ArrayList jdk) throws IOException, URISyntaxException
 	{
 		
 		MatrixManager manager = new MatrixManager();
@@ -23,7 +23,7 @@ public class GenerateSimilarityMatrix {
 		/*
 		 * parsing
 		 */
-		occurrencies_list = manager.createFiles(path_list, operation);
+		occurrencies_list = manager.createFiles(path_list, operation, jdk);
 		
 		RealMatrix m = manager.createMatrix(occurrencies_list);
 

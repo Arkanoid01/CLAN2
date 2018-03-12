@@ -10,7 +10,7 @@ import org.eclipse.jgit.api.errors.GitAPIException;
 
 import it.univaq.disim.crossminer.clan.githubdownloader.GitHubRepositoryManager;
 
-public class mainDownload {
+public class MainDownload {
 
 	public static void main(String[] args) throws IOException, GitAPIException {
 		

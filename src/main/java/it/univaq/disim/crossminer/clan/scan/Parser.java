@@ -7,11 +7,13 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
-import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
+
+
 
 public class Parser {
 	
@@ -86,7 +88,7 @@ public class Parser {
 	}
 	
 	
-	public List<String> GetMethods(CompilationUnit cu){
+	public List<String> GetMethods(CompilationUnit cu, ArrayList jdk){
 		
     	List<String> methods = new ArrayList<String>();
         @SuppressWarnings("deprecation")
@@ -95,12 +97,16 @@ public class Parser {
         {
         	try
         	{
-        		methods.add(method.getNameAsString());
-				/*for(MethodCallExpr elem : method.getChildNodesByType(MethodCallExpr.class))
+        		//methods.add(method.getNameAsString());
+				for(MethodCallExpr elem : method.getChildNodesByType(MethodCallExpr.class))
 				{
-					methods.add(elem.getNameAsString());
-					//System.out.println(elem.getNameAsString());
-				}*/
+					//for(subelem : elem.getChildNodesByType(SimpleName.))
+					//System.out.println(elem.getChildNodesByType(SimpleName.class).get(0));
+					if(jdk.contains(elem.getChildNodesByType(SimpleName.class).get(0)))
+					{
+						methods.add(elem.getNameAsString());
+					}
+				}
         	}
 	    	catch(Exception exc)
 	    	{

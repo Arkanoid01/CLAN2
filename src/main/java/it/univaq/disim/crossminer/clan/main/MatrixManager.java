@@ -53,7 +53,7 @@ public class MatrixManager {
 		return m;
 	}
 	
-	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list,String operation) throws IOException
+	public ArrayList<ArrayList<Double>> createFiles(ArrayList<String> path_list,String operation, ArrayList jdk) throws IOException
 	{
 		Row row = new Row();
 		Repositories repository_object = new Repositories(operation);
@@ -93,7 +93,7 @@ public class MatrixManager {
 	        FolderNavigator navigator = new FolderNavigator();
 			ArrayList<String> terms= new ArrayList<String>();
 	        
-	        repository_object = navigator.filesList(file, repository_object.getMainList(), terms, repository_object,operation);
+	        repository_object = navigator.filesList(file, repository_object.getMainList(), terms, repository_object,operation,jdk);
 			repository_object.saveMainList(repository_object.getMainList(),operation);
 	        
 			System.out.println("saving: "+repoName);
