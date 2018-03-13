@@ -16,11 +16,9 @@ public class Jdk {
 		for(String line : lines)
 		{
 			String aux = line.replaceAll("\\s","");
-			System.out.println(aux);
 			jdk_classes.add(aux);
 			
 		}
-		
 		return jdk_classes;
 	}
 

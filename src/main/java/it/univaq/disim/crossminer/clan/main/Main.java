@@ -26,7 +26,7 @@ public class Main {
 		}
 		
 		GenerateSimilarityMatrix generator = new GenerateSimilarityMatrix();
-		String operation = "packages"; //specifica se fare analisi dei package o dei metodi
+		String operation = "methods"; //specifica se fare analisi dei package o dei metodi
 		
 		/*
 		 * caricamento jdk

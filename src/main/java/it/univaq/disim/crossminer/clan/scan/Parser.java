@@ -102,7 +102,9 @@ public class Parser {
 				{
 					//for(subelem : elem.getChildNodesByType(SimpleName.))
 					//System.out.println(elem.getChildNodesByType(SimpleName.class).get(0));
-					if(jdk.contains(elem.getChildNodesByType(SimpleName.class).get(0)))
+					String term = elem.getChildNodesByType(SimpleName.class).get(0).toString();
+					
+					if(jdk.contains(term))
 					{
 						methods.add(elem.getNameAsString());
 					}

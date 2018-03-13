@@ -26,21 +26,6 @@ public class testPart2 {
 		mp = mp.scalarMultiply(0.5);
 		RealMatrix mr = mp.add(mm);
 		
-		/*for(int i=0; i<mr.getRowDimension(); i++)
-		{
-			System.out.println(mp.getRowMatrix(i));
-		}
-		
-		for(int i=0; i<mr.getRowDimension(); i++)
-		{
-			System.out.println(mm.getRowMatrix(i));
-		}
-		
-		for(int i=0; i<mr.getRowDimension(); i++)
-		{
-			System.out.println(mr.getRowMatrix(i));
-		}*/
-		
 		dr.refine(mr,folder_path);
 	}
 
