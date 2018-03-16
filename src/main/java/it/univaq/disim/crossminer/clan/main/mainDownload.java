@@ -53,7 +53,7 @@ public class MainDownload {
 		    try {
 		    	if(files.contains(User+"\\"+Repository))
 		    	{
-		    		System.out.println("già scaricato");
+		    		System.out.println("already scaricato");
 		    	}
 		    	else
 		    	{

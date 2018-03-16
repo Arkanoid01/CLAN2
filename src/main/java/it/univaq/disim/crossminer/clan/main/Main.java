@@ -20,9 +20,23 @@ public class Main {
 		File folder_path = new File(path);
 		File[] listOfRepos = folder_path.listFiles();
 		
+		/*
+		 * controllo per gli utenti che hanno multi repository
+		 */
 		for(File elem:listOfRepos)
 		{
-			path_list.add(elem.toString());
+			if(elem.listFiles().length<=1)
+			{
+				path_list.add(elem.toString());
+			}
+			else
+			{
+				File[] subListOfRepos = elem.listFiles();
+				for(File subelem:subListOfRepos)
+				{
+					path_list.add(subelem.toString());
+				}
+			}
 		}
 		
 		GenerateSimilarityMatrix generator = new GenerateSimilarityMatrix();
