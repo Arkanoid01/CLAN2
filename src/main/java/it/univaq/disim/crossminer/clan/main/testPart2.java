@@ -14,13 +14,13 @@ public class testPart2 {
 		
 		LoadSave ls = new LoadSave();
 		DataRefinement dr = new DataRefinement();
-		File folder_path = new File("C:/repos/Nuova");
+		File folder_path = new File("resultsmethods");
 		
-		File f = new File("resultspackages.txt");
-		RealMatrix mp = ls.Load(f);
+		File fp = new File("resultspackages.txt");
+		RealMatrix mp = ls.Load(fp);
 		
-		f = new File("resultsmethods.txt");
-		RealMatrix mm = ls.Load(f);
+		File fm = new File("resultsmethods.txt");
+		RealMatrix mm = ls.Load(fm);
 		
 		mm = mm.scalarMultiply(0.5);
 		mp = mp.scalarMultiply(0.5);

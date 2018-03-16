@@ -1,8 +1,12 @@
 package it.univaq.disim.crossminer.matrix;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.math3.linear.RealMatrix;
@@ -10,7 +14,7 @@ import org.apache.commons.math3.linear.RealVector;
 
 public class DataRefinement {
 	
-	public void refine (RealMatrix m, File folder_path)
+	public void refine (RealMatrix m, File folder_path) throws IOException
 	{	
 		HashMap<String, Double> results = new HashMap<String, Double>();
 		
@@ -24,13 +28,17 @@ public class DataRefinement {
 		for(File elem:listOfRepos)
 		{
 			String repo = elem.toString();
-			int index = repo.lastIndexOf("\\")+1;
-			int endindex = repo.length();
-			String repoName = repo.substring(index,endindex);
-			path_list.add(repoName);
+			repo = repo.replace("=", "\\");
+			repo = repo.replace(".txt","");
+			int index = repo.indexOf("\\");
+			index = repo.indexOf("\\",index);
+			repo = repo.substring(index+1, repo.length());
+			
+			path_list.add(repo);
+			
+			
 		}
 		
-		System.out.println(m.getRowDimension());
 		for(int i=0; i<m.getRowDimension(); i++)
 		{	
 			RealVector vector = m.getRowVector(i);

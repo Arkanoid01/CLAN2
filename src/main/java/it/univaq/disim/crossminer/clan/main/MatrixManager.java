@@ -61,9 +61,17 @@ public class MatrixManager {
 
 		for(String repo : path_list)
 		{		
-			int index = repo.lastIndexOf("\\")+1;
-			int endindex = repo.length();
-			String repoName = repo.substring(index,endindex);
+			int endindex;
+			/*
+			 * creazione del nome della repo
+			 */
+			int index1 = 0;
+			for(int i=0; i<org.apache.commons.lang3.StringUtils.countMatches(repo.toString(),"\\")-1; i++)
+			{
+				index1 = repo.toString().indexOf("\\",index1+1);
+			}
+			String repoName = repo.toString().substring(index1+1, repo.toString().length());
+			repoName = repoName.replace("\\", "=");
 			
 			File folder_path = new File("results"+operation+"/");
 			File[] listOfFiles = folder_path.listFiles();

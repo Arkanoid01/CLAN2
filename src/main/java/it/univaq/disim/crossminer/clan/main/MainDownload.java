@@ -16,7 +16,7 @@ public class MainDownload {
 		
 		GitHubRepositoryManager git = new GitHubRepositoryManager();
 
-		BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Rick\\Documents\\GitHub\\CLAN2\\src\\repositories.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Rick\\Documents\\GitHub\\CLAN2\\repositories.txt"));
 		
 		String line;
 		

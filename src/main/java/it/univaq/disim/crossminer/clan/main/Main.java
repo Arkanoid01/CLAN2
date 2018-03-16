@@ -6,6 +6,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.codec.binary.StringUtils;
+
 public class Main {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
@@ -15,7 +17,7 @@ public class Main {
 		ArrayList<String> path_list = new ArrayList<String>();
 		
 		
-		String path= "C:/repos/Nuova";
+		String path= "C:/repos";
 		
 		File folder_path = new File(path);
 		File[] listOfRepos = folder_path.listFiles();
@@ -27,7 +29,8 @@ public class Main {
 		{
 			if(elem.listFiles().length<=1)
 			{
-				path_list.add(elem.toString());
+				String[] subRepo = elem.list();
+				path_list.add(elem+"\\"+subRepo[0]);
 			}
 			else
 			{
